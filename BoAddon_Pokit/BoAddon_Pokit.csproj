@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C5A8F585-27BF-43D2-AE43-1FE65260B190}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BoAddon_Pokit</RootNamespace>
+    <AssemblyName>BoAddon_Pokit</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>BoAddon_Pokit.BoAddon</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>SAP Bone.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="SAPBoAddon">
+      <HintPath>..\BoAddonBiz_Pokit\Dlls\SAPBoAddon.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BoAddon.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Tools\release.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SAP Bone.ico" />
+    <Content Include="Tools\7zip\7z.dll" />
+    <Content Include="Tools\7zip\7z.exe" />
+    <Content Include="Tools\AddOnRegDataGen.exe" />
+    <Content Include="Tools\B1AddOnRegData.x64.xml" />
+    <Content Include="Tools\B1AddOnRegData.x86.xml" />
+    <Content Include="Tools\xerces-c_2_8_b1.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BoAddonBiz_Pokit\BoAddonBiz_Pokit.csproj">
+      <Project>{92482040-7e4d-45f6-839b-750f7ff47b91}</Project>
+      <Name>BoAddonBiz_Pokit</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>SET VERSION=4.%25DATE:~3,1%25.%25DATE:~5,2%25%25DATE:~8,2%25
+echo "$(Platform)"
+cd /d "$(ProjectDir)Tools\"
+PowerShell.exe -file release.ps1 -APP_NAME "$(TargetFileName)" -VERSION "%25VERSION%25" -PLATFORM "$(Platform)" -OUTPUT_PATH $(TargetDir)
+
+"$(ProjectDir)Tools\AddOnRegDataGen.exe" "$(TargetDir)temp.xml" "%25VERSION%25" "" "" "$(TargetDir)$(TargetFileName)"
+
+cd /d "$(TargetDir)"
+del temp.xml
+
+
+echo "$(Configuration)"
+if "$(Configuration)" == "Release" (
+	if exist "$(ProjectDir)Tools\7zip" (
+        if exist "$(ProjectName).zip" (del /q "$(ProjectName).zip")
+        "$(ProjectDir)Tools\7zip\7z.exe" a "$(TargetDir)$(ProjectName).zip" "$(TargetDir)"*.* -r -x!*.exe.config -x!*.dll.config -x!*.pdb
+	echo "Ok"
+	)
+)</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

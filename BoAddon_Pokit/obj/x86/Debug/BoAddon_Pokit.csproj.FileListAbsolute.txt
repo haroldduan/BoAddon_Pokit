@@ -1,0 +1,15 @@
+C:\iWorkSpace\SBO_Solution\BoAddon_Pokit\BoAddon_Pokit\bin\Debug\DataStructures\DS_FM_CodingRulesScheme.xml
+C:\iWorkSpace\SBO_Solution\BoAddon_Pokit\BoAddon_Pokit\bin\Debug\SQLs\AVA_FM_FN_GET_JOURNAL_ENTRY_DATAS.sql
+C:\iWorkSpace\SBO_Solution\BoAddon_Pokit\BoAddon_Pokit\bin\Debug\SQLs\AVA_FM_SP_SAVE_JOURNAL_ENTRY_DATA.sql
+C:\iWorkSpace\SBO_Solution\BoAddon_Pokit\BoAddon_Pokit\bin\Debug\BoAddon_Pokit.exe.config
+C:\iWorkSpace\SBO_Solution\BoAddon_Pokit\BoAddon_Pokit\bin\Debug\BoAddon_Pokit.exe
+C:\iWorkSpace\SBO_Solution\BoAddon_Pokit\BoAddon_Pokit\bin\Debug\BoAddon_Pokit.pdb
+C:\iWorkSpace\SBO_Solution\BoAddon_Pokit\BoAddon_Pokit\bin\Debug\BoAddonBiz_Pokit.dll
+C:\iWorkSpace\SBO_Solution\BoAddon_Pokit\BoAddon_Pokit\bin\Debug\SAPBoAddon.dll
+C:\iWorkSpace\SBO_Solution\BoAddon_Pokit\BoAddon_Pokit\bin\Debug\BoAddonBiz_Pokit.pdb
+C:\iWorkSpace\SBO_Solution\BoAddon_Pokit\BoAddon_Pokit\bin\Debug\BoAddonBiz_Pokit.dll.config
+C:\iWorkSpace\SBO_Solution\BoAddon_Pokit\BoAddon_Pokit\obj\x86\Debug\BoAddon_Pokit.csprojResolveAssemblyReference.cache
+C:\iWorkSpace\SBO_Solution\BoAddon_Pokit\BoAddon_Pokit\obj\x86\Debug\BoAddon_Pokit.Properties.Resources.resources
+C:\iWorkSpace\SBO_Solution\BoAddon_Pokit\BoAddon_Pokit\obj\x86\Debug\BoAddon_Pokit.csproj.GenerateResource.Cache
+C:\iWorkSpace\SBO_Solution\BoAddon_Pokit\BoAddon_Pokit\obj\x86\Debug\BoAddon_Pokit.exe
+C:\iWorkSpace\SBO_Solution\BoAddon_Pokit\BoAddon_Pokit\obj\x86\Debug\BoAddon_Pokit.pdb
