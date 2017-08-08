@@ -99,7 +99,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>SET VERSION=4.%25DATE:~3,1%25.%25DATE:~5,2%25%25DATE:~8,2%25
+    <PostBuildEvent>SET VERSION=0.01
 echo "$(Platform)"
 cd /d "$(ProjectDir)Tools\"
 PowerShell.exe -file release.ps1 -APP_NAME "$(TargetFileName)" -VERSION "%25VERSION%25" -PLATFORM "$(Platform)" -OUTPUT_PATH $(TargetDir)
