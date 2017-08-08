@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("AVATECH")]
 [assembly: AssemblyProduct("BoAddon_Pokit")]
-[assembly: AssemblyCopyright("Copyright © AVATECH  2011")]
+[assembly: AssemblyCopyright("Copyright © AVATECH  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
