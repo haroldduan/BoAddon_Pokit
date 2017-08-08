@@ -20,7 +20,8 @@ catch
 echo "Exporting..."
 cd $PSScriptRoot
 
-$message = grip --export -q 2>&1 | %{ "$_" }  #"-q 2>&1 | %{ "$_" }" 为了清除ps中的错误报错信息（调用第三方应用执行时有时即使执行成功ps还是会报错）
+grip README.md --export README.html
+# grip README.md --export README.html -q 2>&1 | %{ "$_" }  #"-q 2>&1 | %{ "$_" }" 为了清除ps中的错误报错信息（调用第三方应用执行时有时即使执行成功ps还是会报错）
 echo "Success."
 echo ***************************************************************************
 echo Pokit 💩
