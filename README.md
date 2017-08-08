@@ -2,7 +2,7 @@
 
 ***Pokit means Poo Toolkits!***
 
-![Poo](images/windows_poo.png)
+![Poo](/BoAddonBiz_Pokit/ReadMe/images/windows_poo.png)
 
 
 
